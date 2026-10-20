@@ -739,6 +739,7 @@
      HERO — SIGNATURE EXPERIENCE
      ============================================================ */
   .hero{ min-height:100svh; padding-top:7.8rem; }
+  .hero::before{ display:none; }
   .hero::before{ content:""; position:absolute; inset:7rem max(1rem,calc((100vw - var(--maxw))/2)) 3.2rem; z-index:1;
     border:1px solid color-mix(in srgb,var(--accent) 18%,var(--glass-brd)); border-radius:38px; pointer-events:none;
     background:
