@@ -1,2 +1,3 @@
-// Placeholder: original implementation was not supplied.
-export {};
+export function createPageUrl(pageName: string) {
+    return '/' + pageName.replace(/ /g, '-');
+}

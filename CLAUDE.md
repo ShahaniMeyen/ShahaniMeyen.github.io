@@ -1,1 +1,3 @@
-Placeholder file — original contents not provided.
+# See AGENTS.md
+
+Follow the instructions in `AGENTS.md`.

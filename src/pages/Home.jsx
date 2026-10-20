@@ -1,1 +1,12 @@
-export default function Home() { return <main style={{fontFamily:'sans-serif',padding:32}}><h1>Base44 project scaffold</h1><p>Replace placeholder files with your project's source code.</p></main>; }
+import portfolioHtml from "../portfolio.html?raw";
+
+export default function Home() {
+  return (
+    <iframe
+      title="Shahani Thasneem Meyen — Portfolio"
+      srcDoc={portfolioHtml}
+      loading="eager"
+      className="w-screen h-screen border-0 block"
+    />
+  );
+}
