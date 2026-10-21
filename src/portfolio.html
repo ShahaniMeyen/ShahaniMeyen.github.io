@@ -1213,6 +1213,16 @@
     .quote-card blockquote{ font-size:1.25rem; }
   }
 
+  /* Consistent section-heading alignment */
+  .section-heading{ width:min(100%,860px); margin-inline:auto; text-align:center; }
+  .section-heading .eyebrow{ justify-content:center; }
+  .section-heading .h-section{ margin-inline:auto; max-width:17ch; }
+  .section-heading .lead{ margin-inline:auto; }
+  @media(max-width:560px){
+    .section-heading{ width:100%; }
+    .section-heading .h-section{ max-width:14ch; }
+  }
+
 </style>
 </head>
 <body>
@@ -1341,7 +1351,7 @@
 <!-- ============ SKILLS ============ -->
 <section class="section" id="skills">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:3rem;" class="reveal">
+    <div style="margin-bottom:3rem;" class="section-heading reveal">
       <span class="eyebrow" style="justify-content:center;">Capabilities</span>
       <h2 class="h-section">Skills that keep the door open and the smile real.</h2>
     </div>
@@ -1398,7 +1408,7 @@
 <!-- ============ EXPERIENCE ============ -->
 <section class="section" id="experience">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:3.5rem;" class="reveal">
+    <div style="margin-bottom:3.5rem;" class="section-heading reveal">
       <span class="eyebrow" style="justify-content:center;">The Journey</span>
       <h2 class="h-section">A career built one guest at a time.</h2>
     </div>
@@ -1424,7 +1434,7 @@
         </ul>
       </div>
     </div>
-    <div style="text-align:center; margin:4rem 0 3rem;" class="reveal">
+    <div style="margin-top:4rem; margin-bottom:3rem;" class="section-heading reveal">
       <span class="eyebrow" style="justify-content:center;">Education</span>
       <h2 class="h-section" style="font-size:clamp(1.6rem, 3.5vw, 2.4rem);">A foundation built on learning and language.</h2>
     </div>
@@ -1466,7 +1476,7 @@
 <!-- ============ SERVICES (BENTO) ============ -->
 <section class="section" id="services">
   <div class="wrap">
-    <div style="margin-bottom:3rem;" class="reveal">
+    <div style="margin-bottom:3rem;" class="section-heading reveal">
       <span class="eyebrow">What I Bring</span>
       <h2 class="h-section">More than a desk - a first impression engine.</h2>
     </div>
@@ -1514,7 +1524,7 @@
 <!-- ============ TESTIMONIALS ============ -->
 <section class="section" id="testimonials">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:3rem;" class="reveal">
+    <div style="margin-bottom:3rem;" class="section-heading reveal">
       <span class="eyebrow" style="justify-content:center;">Kind Words</span>
       <h2 class="h-section">What guests and managers say.</h2>
     </div>
