@@ -983,6 +983,70 @@
     .hero-copy h1{ font-size:clamp(2.55rem,12.5vw,3.8rem); line-height:1.08; }
   }
 
+
+
+  /* Modern editorial About section */
+  #about{ min-height:760px; display:flex; align-items:center; }
+  #about .about-grid{ grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr); gap:clamp(3rem,8vw,8rem); }
+  .about-identity{ position:relative; min-height:500px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .monogram-stage{ position:relative; width:min(88%,390px); aspect-ratio:1; display:grid; place-items:center; isolation:isolate; }
+  .monogram-stage::before{ content:""; position:absolute; inset:12%; z-index:-1; border-radius:42% 58% 52% 48%/48% 42% 58% 52%;
+    background:linear-gradient(145deg,color-mix(in srgb,var(--surface) 88%,transparent),color-mix(in srgb,var(--accent-soft) 68%,transparent));
+    border:1px solid color-mix(in srgb,var(--accent) 24%,var(--glass-brd));
+    box-shadow:0 38px 90px -50px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.14);
+    animation:morphShape 10s var(--ease) infinite alternate; }
+  .monogram-stage::after{ content:""; position:absolute; inset:25%; z-index:-1; border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%); filter:blur(20px); }
+  .monogram{ position:relative; z-index:3; font-family:var(--font-display); font-size:clamp(5rem,10vw,8.5rem);
+    font-weight:700; letter-spacing:-.1em; padding-right:.1em; color:var(--heading); text-shadow:0 18px 40px rgba(0,0,0,.16); }
+  .monogram::after{ content:""; position:absolute; left:14%; right:5%; bottom:.08em; height:3px; border-radius:3px;
+    background:var(--grad); box-shadow:0 0 14px var(--accent); }
+  .mono-orbit{ position:absolute; z-index:1; border-radius:50%; border:1px solid color-mix(in srgb,var(--accent) 26%,transparent); }
+  .orbit-a{ inset:4%; border-style:dashed; animation:orbitSpin 24s linear infinite; }
+  .orbit-b{ inset:18%; border-color:color-mix(in srgb,var(--accent-2) 18%,transparent); animation:orbitSpin 17s linear infinite reverse; }
+  .mono-dot{ position:absolute; z-index:4; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 16px var(--accent); }
+  .dot-a{ top:11%; right:22%; }.dot-b{ bottom:17%; left:12%; width:6px; height:6px; }
+  .identity-caption{ width:min(82%,340px); display:flex; align-items:flex-end; justify-content:space-between; gap:1rem;
+    margin-top:-.5rem; padding-top:1rem; border-top:1px solid color-mix(in srgb,var(--accent) 22%,var(--glass-brd)); }
+  .identity-caption span{ color:var(--accent); font-size:.64rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+  .identity-caption b{ max-width:11ch; color:var(--heading); font-family:var(--font-display); font-size:1.05rem; text-align:right; }
+  @keyframes morphShape{ to{ border-radius:56% 44% 42% 58%/44% 56% 44% 56%; transform:rotate(3deg) scale(1.03); } }
+
+  #about .about-text{ padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; }
+  #about .about-text::before{ display:none; }
+  #about .h-section{ max-width:12ch; font-size:clamp(2.8rem,5.4vw,5.2rem); line-height:1.02; margin:1.25rem 0 1.4rem; }
+  .about-lead{ max-width:51ch; font-size:clamp(1rem,1.35vw,1.15rem); line-height:1.8; margin-bottom:2rem!important; }
+  .about-principles{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--glass-brd); }
+  .about-principles article{ position:relative; display:flex; gap:.75rem; padding:1.2rem .85rem 1.1rem 0;
+    border-right:1px solid var(--glass-brd); transition:transform .35s var(--ease),background .3s,padding .35s var(--ease); }
+  .about-principles article+article{ padding-left:.85rem; }
+  .about-principles article:last-child{ border-right:0; }
+  .about-principles article:hover{ transform:translateY(-5px); background:linear-gradient(180deg,var(--accent-soft),transparent); padding-inline:1rem; }
+  .about-principles article>span{ color:var(--accent); font-size:.63rem; font-weight:800; letter-spacing:.08em; padding-top:.18rem; }
+  .about-principles article div{ display:flex; flex-direction:column; gap:.3rem; }
+  .about-principles b{ color:var(--heading); font-family:var(--font-display); font-size:1.08rem; }
+  .about-principles small{ color:var(--text-dim); font-size:.72rem; line-height:1.45; }
+  [data-theme="ivory"] .monogram-stage::before,[data-theme="ocean"] .monogram-stage::before{
+    background:linear-gradient(145deg,rgba(255,255,255,.95),color-mix(in srgb,var(--accent-soft) 58%,white));
+    box-shadow:0 35px 75px -48px rgba(78,58,22,.28),inset 0 1px 0 #fff; }
+  @media(max-width:820px){
+    #about{ min-height:auto; }
+    #about .about-grid{ grid-template-columns:1fr; gap:2rem; }
+    .about-identity{ min-height:390px; }
+    .monogram-stage{ width:min(82%,340px); }
+    #about .h-section{ font-size:clamp(2.6rem,9vw,4.2rem); }
+  }
+  @media(max-width:560px){
+    .about-identity{ min-height:330px; }
+    .monogram-stage{ width:290px; }
+    .about-principles{ grid-template-columns:1fr; border-top:0; gap:.25rem; }
+    .about-principles article,.about-principles article+article{ padding:.9rem .5rem; border-right:0; border-top:1px solid var(--glass-brd); }
+    .identity-caption{ width:90%; }
+  }
+  @media(prefers-reduced-motion:reduce){
+    .monogram-stage::before,.mono-orbit{ animation:none; }
+  }
+
 </style>
 </head>
 <body>
@@ -1085,27 +1149,22 @@
 <section class="section" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="avatar-wrap reveal">
-        <div class="avatar-glow"></div>
-        <div class="avatar-ring"></div>
-        <div class="avatar">
-          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5">
-            <circle cx="60" cy="44" r="20"/>
-            <path d="M24 104c0-20 16-32 36-32s36 12 36 32" stroke-linecap="round"/>
-            <path d="M44 40a16 16 0 0 1 32 0" opacity="0.5"/>
-          </svg>
+      <div class="about-identity reveal" aria-hidden="true">
+        <div class="monogram-stage">
+          <span class="monogram">SM</span>
+          <i class="mono-orbit orbit-a"></i><i class="mono-orbit orbit-b"></i>
+          <i class="mono-dot dot-a"></i><i class="mono-dot dot-b"></i>
         </div>
+        <div class="identity-caption"><span>Front desk executive</span><b>Guest-first by design.</b></div>
       </div>
       <div class="about-text reveal d1">
         <span class="eyebrow">About Me</span>
-        <h2 class="h-section">The calm at the center of every busy lobby.</h2>
-        <p>I'm <strong>Shahani Thasneem Meyen</strong>, a Front Desk Executive who believes the reception is the heartbeat of any great establishment. With two years of customer-facing experience in sales, I've learned to read a room, build trust quickly, and turn first conversations into lasting relationships.</p>
-        <p>My approach is simple: <strong>listen, personalize, and resolve</strong> — often before a guest even asks. I bring the same drive I gave to hitting sales targets to creating warm, seamless guest experiences.</p>
-        <p>Fluent in English and Sinhala, I make every guest feel understood — in their language and on their terms.</p>
-        <div class="about-chips">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Sales &amp; Upselling</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>MS Office</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>CRM Tools</span>
+        <h2 class="h-section">Calm service.<br><span class="grad-text">Strong impressions.</span></h2>
+        <p class="about-lead">I'm <strong>Shahani Thasneem Meyen</strong>, a hospitality professional who turns busy arrivals into smooth, thoughtful experiences.</p>
+        <div class="about-principles">
+          <article><span>01</span><div><b>Listen</b><small>Understand the guest.</small></div></article>
+          <article><span>02</span><div><b>Personalize</b><small>Make service feel human.</small></div></article>
+          <article><span>03</span><div><b>Resolve</b><small>Act with calm confidence.</small></div></article>
         </div>
       </div>
     </div>
