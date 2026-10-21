@@ -1341,7 +1341,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Let's Talk
         </a>
-        <a href="https://media.base44.com/files/public/6abdbed45e32c6231aa10be0/87ed3c55a_ShahaniCV.pdf" target="_blank" rel="noopener" class="btn btn-ghost magnetic" id="cv-btn">
+        <a href="/ShahaniCV.pdf" target="_blank" rel="noopener" class="btn btn-ghost magnetic" id="cv-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           Download CV
         </a>
@@ -1810,10 +1810,11 @@ function goSlide(i){
   [...dots].forEach((d,j) => d.classList.toggle('on', j===i));
 }
 goSlide(0);
-let carTimer = setInterval(() => goSlide((curSlide+1)%slides), 5500);
+const carouselDelay = 10000;
+let carTimer = setInterval(() => goSlide((curSlide+1)%slides), carouselDelay);
 document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(carTimer));
 document.getElementById('carousel').addEventListener('mouseleave', () => {
-  carTimer = setInterval(() => goSlide((curSlide+1)%slides), 5500);
+  carTimer = setInterval(() => goSlide((curSlide+1)%slides), carouselDelay);
 });
 
 /* ============================================================

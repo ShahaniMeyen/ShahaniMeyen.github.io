@@ -1736,10 +1736,11 @@ function goSlide(i){
   [...dots].forEach((d,j) => d.classList.toggle('on', j===i));
 }
 goSlide(0);
-let carTimer = setInterval(() => goSlide((curSlide+1)%slides), 5500);
+const carouselDelay = 10000;
+let carTimer = setInterval(() => goSlide((curSlide+1)%slides), carouselDelay);
 document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(carTimer));
 document.getElementById('carousel').addEventListener('mouseleave', () => {
-  carTimer = setInterval(() => goSlide((curSlide+1)%slides), 5500);
+  carTimer = setInterval(() => goSlide((curSlide+1)%slides), carouselDelay);
 });
 
 /* ============================================================
