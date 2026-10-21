@@ -19,7 +19,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
   /* ============================================================
@@ -30,9 +30,10 @@
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
     --dur: 0.45s;
     --maxw: 1200px;
-    --font-display: 'Manrope', 'Inter', sans-serif;
+    --font-display: 'Syne', 'Manrope', sans-serif;
     --font-editorial: 'Newsreader', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-tech: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
     --grid-gap: 1.5rem;
   }
 
@@ -73,7 +74,7 @@
     font-size:clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
     overflow-x:hidden;
     transition:background var(--dur) var(--ease), color var(--dur) var(--ease);
-    cursor:auto;
+    cursor:auto; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
   h1,h2,h3,h4{ font-family:var(--font-display); font-weight:700; line-height:1.08; color:var(--heading); letter-spacing:-0.045em; text-wrap:balance; }
   ::-webkit-scrollbar{ width:10px; }
@@ -1261,6 +1262,19 @@
   @keyframes loaderOrbit{ to{ transform:rotate(360deg); } }
   @keyframes corePulse{ to{ transform:scale(1.28); filter:brightness(1.25); } }
   @keyframes signalWave{ to{ height:16px; opacity:.45; } }
+
+  /* Futuristic typography details */
+  .hero-copy h1,.h-section{ font-feature-settings:"ss01" 1,"kern" 1; }
+  .hero-copy h1{ font-weight:700; letter-spacing:-.065em; }
+  .h-section{ font-weight:650; letter-spacing:-.055em; }
+  .eyebrow,.nav-links a,.hero-kicker,.tagline,.console-label,.console-live,.console-index,
+  .flow-step b,.loader-copy span,.tl-date,.edu-date,.identity-caption span,.skill-band::before,
+  .form::before{ font-family:var(--font-tech); }
+  .eyebrow{ font-weight:500; letter-spacing:.18em; }
+  .nav-links a{ font-weight:500; letter-spacing:.075em; }
+  .btn{ font-family:var(--font-body); font-weight:700; letter-spacing:-.015em; }
+  .lead,.hero-bio,.about-lead,.skill-head p,.bento-card p{ letter-spacing:-.012em; }
+  .quote-card blockquote{ letter-spacing:-.018em; }
 
 </style>
 </head>
