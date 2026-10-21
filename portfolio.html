@@ -19,7 +19,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600&family=Sora:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
   /* ============================================================
@@ -30,10 +30,10 @@
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
     --dur: 0.45s;
     --maxw: 1200px;
-    --font-display: 'Syne', 'Manrope', sans-serif;
+    --font-display: 'Sora', 'Manrope', sans-serif;
     --font-editorial: 'Newsreader', Georgia, serif;
     --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-tech: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+    --font-tech: 'Space Mono', 'SFMono-Regular', Consolas, monospace;
     --grid-gap: 1.5rem;
   }
 
@@ -1204,16 +1204,19 @@
 
   /* Futuristic typography details */
   .hero-copy h1,.h-section{ font-feature-settings:"ss01" 1,"kern" 1; }
-  .hero-copy h1{ font-weight:700; letter-spacing:-.065em; }
-  .h-section{ font-weight:650; letter-spacing:-.055em; }
+  .hero-copy h1{ font-weight:600; letter-spacing:-.055em; line-height:1.02; }
+  .h-section{ font-weight:600; letter-spacing:-.045em; line-height:1.08; }
   .eyebrow,.nav-links a,.hero-kicker,.tagline,.console-label,.console-live,.console-index,
   .flow-step b,.loader-copy span,.tl-date,.edu-date,.identity-caption span,.skill-band::before,
   .form::before{ font-family:var(--font-tech); }
-  .eyebrow{ font-weight:500; letter-spacing:.18em; }
-  .nav-links a{ font-weight:500; letter-spacing:.075em; }
+  .eyebrow{ font-weight:700; letter-spacing:.14em; }
+  .nav-links a{ font-weight:700; letter-spacing:.045em; }
   .btn{ font-family:var(--font-body); font-weight:700; letter-spacing:-.015em; }
   .lead,.hero-bio,.about-lead,.skill-head p,.bento-card p{ letter-spacing:-.012em; }
   .quote-card blockquote{ letter-spacing:-.018em; }
+  .hero-copy h1 .line:first-child span{ color:var(--heading); }
+  .hero-copy h1 .grad-text,.h-section .grad-text{ background-image:linear-gradient(110deg,var(--accent),var(--accent-2) 52%,var(--accent));
+    background-size:200% auto; }
 
 </style>
 </head>
