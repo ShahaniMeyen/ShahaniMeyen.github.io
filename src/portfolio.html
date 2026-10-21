@@ -1289,6 +1289,20 @@
     .hero-copy h1{ max-width:13.5ch; line-height:1; }
   }
 
+  /* Raise the hero copy and artwork for a tighter first view */
+  .hero-copy{ transform:translateY(-1.25rem); }
+  .hero-art{ transform:translateY(-1.75rem); }
+  @media(max-width:820px){
+    .hero{ padding-top:5.9rem; }
+    .hero-inner{ padding-top:1rem; }
+    .hero-copy{ transform:translateY(-.6rem); }
+    .hero-art{ transform:translateY(-1.5rem); }
+  }
+  @media(max-width:560px){
+    .hero{ padding-top:5.4rem; }
+    .hero-art{ transform:translateY(-1.25rem); }
+  }
+
 </style>
 </head>
 <body>
