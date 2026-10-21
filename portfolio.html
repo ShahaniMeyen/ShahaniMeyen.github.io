@@ -1326,6 +1326,15 @@
     #about .h-section{ font-size:clamp(2.25rem,9vw,3.3rem); }
   }
 
+  /* Larger, caption-free About portrait */
+  .monogram-stage{ width:min(100%,420px); }
+  @media(max-width:820px){
+    .monogram-stage{ width:min(86%,380px); }
+  }
+  @media(max-width:560px){
+    .monogram-stage{ width:min(92%,330px); }
+  }
+
 </style>
 </head>
 <body>
@@ -1435,7 +1444,6 @@
         <div class="monogram-stage">
           <img class="about-photo" src="/profile.jpeg" alt="Shahani Thasneem Meyen" />
         </div>
-        <div class="identity-caption"><span>Hospitality professional</span><b>Guest-first by design.</b></div>
       </div>
       <div class="about-text reveal d1">
         <span class="eyebrow">About Me</span>
