@@ -1162,19 +1162,55 @@
     .section-heading .h-section{ max-width:14ch; }
   }
 
+  /* Futuristic abstract loading sequence */
+  #loader{ background:
+      radial-gradient(circle at 50% 48%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 28rem),
+      var(--bg); }
+  #loader::before{ width:42rem; height:42rem; opacity:.75; filter:blur(55px); }
+  #loader::after{ content:""; position:absolute; inset:0; opacity:.16; pointer-events:none;
+    background-image:linear-gradient(color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px),
+      linear-gradient(90deg,color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px);
+    background-size:42px 42px; -webkit-mask-image:radial-gradient(circle,#000,transparent 68%); mask-image:radial-gradient(circle,#000,transparent 68%); }
+  .loader-inner{ width:250px; gap:1.8rem; }
+  .loader-orbit{ position:relative; width:150px; height:150px; display:grid; place-items:center; }
+  .loader-ring{ position:absolute; border-radius:50%; border:1px solid color-mix(in srgb,var(--accent) 32%,transparent); }
+  .loader-ring.r1{ inset:0; border-style:dashed; animation:loaderOrbit 7s linear infinite; }
+  .loader-ring.r2{ inset:20px; border-color:color-mix(in srgb,var(--accent-2) 48%,transparent); animation:loaderOrbit 4s linear infinite reverse; }
+  .loader-ring.r2::before{ content:""; position:absolute; top:7px; left:12px; width:7px; height:7px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 18px var(--accent); }
+  .loader-ring.r3{ inset:43px; border:0; background:conic-gradient(from 90deg,transparent,var(--accent),transparent 38%);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0); mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);
+    animation:loaderOrbit 1.4s linear infinite; }
+  .loader-core{ position:relative; width:20px; height:20px; border-radius:50%; background:var(--grad);
+    box-shadow:0 0 12px var(--accent),0 0 42px var(--accent),0 0 80px color-mix(in srgb,var(--accent) 55%,transparent);
+    animation:corePulse 1.2s var(--ease) infinite alternate; }
+  .loader-signal{ display:flex; align-items:center; gap:7px; height:16px; }
+  .loader-signal i{ display:block; width:3px; height:7px; border-radius:4px; background:var(--accent);
+    box-shadow:0 0 8px var(--accent); animation:signalWave .8s ease-in-out infinite alternate; }
+  .loader-signal i:nth-child(2){ animation-delay:.12s; }.loader-signal i:nth-child(3){ animation-delay:.24s; }
+  .loader-signal i:nth-child(4){ animation-delay:.36s; }.loader-signal i:nth-child(5){ animation-delay:.48s; }
+  .loader-bar{ width:150px; height:1px; background:color-mix(in srgb,var(--accent) 18%,transparent); }
+  .loader-bar span{ box-shadow:0 0 12px var(--accent); }
+  @keyframes loaderOrbit{ to{ transform:rotate(360deg); } }
+  @keyframes corePulse{ to{ transform:scale(1.28); filter:brightness(1.25); } }
+  @keyframes signalWave{ to{ height:16px; opacity:.45; } }
+
 </style>
 </head>
 <body>
 
 <!-- LOADER -->
 <div id="loader" role="status" aria-label="Loading">
-  <div class="loader-mark">
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--accent)">
-      <circle cx="32" cy="32" r="28" stroke-dasharray="60 120" stroke-linecap="round"/>
-    </svg>
+  <div class="loader-inner">
+    <div class="loader-orbit" aria-hidden="true">
+      <span class="loader-ring r1"></span>
+      <span class="loader-ring r2"></span>
+      <span class="loader-ring r3"></span>
+      <span class="loader-core"></span>
+    </div>
+    <div class="loader-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="loader-bar"><span></span></div>
   </div>
-  <div class="loader-text">Welcome</div>
-  <div class="loader-bar"><span></span></div>
 </div>
 
 <!-- CURSOR GLOW -->
