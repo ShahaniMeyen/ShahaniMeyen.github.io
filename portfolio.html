@@ -1244,6 +1244,43 @@
     .hero{ padding-top:8rem; }
   }
 
+  /* Skills — practical capability bento */
+  .capability-grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:1rem; }
+  .cap-card{ grid-column:span 3; position:relative; min-height:310px; padding:1.5rem; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:space-between; gap:1.5rem; border-radius:24px;
+    border:1px solid color-mix(in srgb,var(--accent) 16%,var(--glass-brd));
+    background:linear-gradient(145deg,color-mix(in srgb,var(--surface) 82%,transparent),color-mix(in srgb,var(--glass) 44%,transparent));
+    box-shadow:0 24px 60px -44px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.07);
+    transition:transform .4s var(--ease),border-color .3s,box-shadow .4s; }
+  .cap-card::before{ content:""; position:absolute; width:180px; height:180px; right:-90px; top:-90px; border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 68%);
+    opacity:.5; transition:transform .45s var(--ease),opacity .35s; }
+  .cap-card:hover{ transform:translateY(-7px); border-color:color-mix(in srgb,var(--accent) 46%,transparent);
+    box-shadow:0 32px 75px -46px var(--ring); }
+  .cap-card:hover::before{ transform:scale(1.2); opacity:.8; }
+  .cap-card.cap-wide{ grid-column:span 6; }
+  .cap-top{ position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; }
+  .cap-icon{ width:48px; height:48px; display:grid; place-items:center; border-radius:15px; color:var(--accent);
+    background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);
+    box-shadow:0 14px 30px -18px var(--accent); }
+  .cap-icon svg{ width:23px; height:23px; }
+  .cap-no{ color:color-mix(in srgb,var(--accent) 62%,var(--text-dim)); font-family:var(--font-tech);
+    font-size:.68rem; letter-spacing:.14em; }
+  .cap-label{ display:block; margin-bottom:.55rem; color:var(--accent); font-family:var(--font-tech);
+    font-size:.58rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+  .cap-card h3{ margin-bottom:.65rem; font-size:clamp(1.25rem,2vw,1.65rem); line-height:1.08; }
+  .cap-card p{ max-width:45ch; color:var(--text-dim); font-size:.86rem; line-height:1.65; }
+  .cap-tags{ position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:.45rem; list-style:none; }
+  .cap-tags li{ padding:.42rem .62rem; border-radius:999px; color:var(--text-dim); font-size:.68rem; font-weight:600;
+    border:1px solid var(--glass-brd); background:color-mix(in srgb,var(--bg) 38%,transparent); }
+  @media(max-width:1024px){
+    .cap-card,.cap-card.cap-wide{ grid-column:span 6; min-height:290px; }
+  }
+  @media(max-width:620px){
+    .capability-grid{ grid-template-columns:1fr; }
+    .cap-card,.cap-card.cap-wide{ grid-column:auto; min-height:260px; padding:1.3rem; }
+  }
+
 </style>
 </head>
 <body>
