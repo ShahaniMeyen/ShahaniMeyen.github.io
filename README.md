@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✨ Shahani Meyen — Hospitality Portfolio
+# Shahani Meyen — Hospitality Portfolio
 
 ### First impressions. Lasting loyalty.
 
@@ -9,19 +9,15 @@ A modern, responsive portfolio created for **Shahani Thasneem Meyen**, presentin
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=06121f)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
-[![Responsive](https://img.shields.io/badge/Design-Responsive-D4AF37?style=for-the-badge&logo=css3&logoColor=white)](#-responsive-experience)
+[![Responsive](https://img.shields.io/badge/Design-Responsive-D4AF37?style=for-the-badge&logo=css3&logoColor=white)](#responsive-experience)
 
 [View Repository](https://github.com/AmjadAzward/ShahaniMeyen.github.io) · [Report an Issue](https://github.com/AmjadAzward/ShahaniMeyen.github.io/issues)
 
 </div>
 
-<p align="center">
-  <img src="./public/hospitality-hero.png" width="520" alt="Gold and navy hospitality desk illustration used in the portfolio hero section" />
-</p>
-
 ---
 
-## 🌟 About the Project
+## About the Project
 
 This portfolio translates hospitality values—warmth, confidence, attention to detail, and calm service—into a premium digital experience. It is intentionally more expressive than a conventional résumé while remaining easy for recruiters and hiring teams to scan.
 
@@ -38,7 +34,7 @@ The interface combines editorial typography, warm gold accents, subtle motion, l
 
 ---
 
-## 🎨 Design Direction
+## Design Direction
 
 The visual language is inspired by boutique hotels, premium concierge service, and contemporary editorial portfolios.
 
@@ -59,22 +55,22 @@ Typography uses four complementary roles:
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- 🌗 **Midnight and ivory themes** with remembered user preference.
-- 📱 **Responsive layouts** designed for desktop, tablet, and mobile.
-- 🧭 **Full-screen mobile navigation** with numbered links and a dedicated close control.
-- 🖼️ **Hospitality-focused 3D hero artwork** and professional profile photography.
-- ✨ **Subtle scroll reveals, hover states, glow, and depth effects.**
-- 🧩 **Modern capability cards** instead of generic percentage-based skill bars.
-- 📄 **Downloadable CV** served directly from the public assets folder.
-- ✉️ **Functional contact form** that prepares a pre-filled email draft.
-- ♿ **Keyboard-friendly interactions**, visible labels, semantic sections, and reduced-motion support.
-- 🔍 **SEO and social metadata** for a professional public presence.
+- **Midnight and ivory themes** with remembered user preference.
+- **Responsive layouts** designed for desktop, tablet, and mobile.
+- **Full-screen mobile navigation** with numbered links and a dedicated close control.
+- **Hospitality-focused 3D hero artwork** and professional profile photography.
+- **Subtle scroll reveals, hover states, glow, and depth effects.**
+- **Modern capability cards** instead of generic percentage-based skill bars.
+- **Downloadable CV** served directly from the public assets folder.
+- **Functional contact form** that prepares a pre-filled email draft.
+- **Keyboard-friendly interactions**, visible labels, semantic sections, and reduced-motion support.
+- **SEO and social metadata** for a professional public presence.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology |
 | --- | --- |
@@ -93,7 +89,7 @@ The React application intentionally stays lightweight. [`src/pages/Home.jsx`](./
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 Portfolio/
@@ -117,7 +113,7 @@ Portfolio/
 
 ---
 
-## ⚡ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -156,7 +152,7 @@ Vite automatically refreshes the browser as source files change.
 
 ---
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command | Description |
 | --- | --- |
@@ -177,7 +173,7 @@ npm run build
 
 ---
 
-## 🧭 Customization Guide
+## Customization Guide
 
 ### Update portfolio content
 
@@ -210,7 +206,7 @@ Search `src/portfolio.html` for `shahani.meyen@gmail.com`. Update both the visib
 
 ---
 
-## 📱 Responsive Experience
+## Responsive Experience
 
 The interface adapts across three broad layout ranges:
 
@@ -222,7 +218,7 @@ Motion respects the user’s `prefers-reduced-motion` setting, and interactive c
 
 ---
 
-## 📦 Production and Deployment
+## Production and Deployment
 
 Create a production-ready build with:
 
@@ -248,7 +244,7 @@ Before publishing, verify:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Focused improvements are welcome.
 
@@ -261,18 +257,10 @@ Please preserve the existing hospitality aesthetic, responsive behaviour, access
 
 ---
 
-## 💌 Contact
-
-For professional opportunities or portfolio enquiries:
-
-- **Shahani Thasneem Meyen**
-- **Email:** [shahani.meyen@gmail.com](mailto:shahani.meyen@gmail.com)
-- **Location:** Sri Lanka
-
 <div align="center">
 
 ---
 
-Made with care, clarity, and a warm welcome. ✨
+Made with care, clarity, and a warm welcome.
 
 </div>
