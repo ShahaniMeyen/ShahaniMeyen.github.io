@@ -1397,12 +1397,12 @@
   }
 
   /* Contact — modern editorial close */
-  #contact{ overflow:hidden; }
+  #contact{ overflow:hidden; padding-bottom:clamp(1.5rem,3vw,2.5rem); }
   .contact-heading{ display:grid; grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr); gap:2rem;
     align-items:end; max-width:1160px; margin:0 auto clamp(2.25rem,5vw,4.5rem); }
   .contact-heading .h-section{ max-width:12ch; margin-bottom:0; }
   .contact-heading .lead{ max-width:38ch; margin:0 0 .35rem auto; }
-  .contact-grid{ max-width:1160px; grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); gap:1.25rem; }
+  .contact-grid{ max-width:1160px; grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); gap:1.25rem; align-items:stretch; }
   .contact-info{ min-height:100%; display:flex; flex-direction:column; padding:clamp(1.6rem,3vw,2.5rem);
     overflow:hidden; isolation:isolate; border-color:color-mix(in srgb,var(--accent) 30%,var(--glass-brd));
     background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 14%,var(--surface)),color-mix(in srgb,var(--surface) 94%,transparent)); }
@@ -1411,18 +1411,18 @@
     box-shadow:0 0 0 34px color-mix(in srgb,var(--accent) 5%,transparent),0 0 0 68px color-mix(in srgb,var(--accent) 4%,transparent); }
   .contact-info h3{ max-width:15ch; margin:0 0 1.5rem; font-size:clamp(1.55rem,2.6vw,2.2rem); line-height:1.12; }
   .contact-list{ margin:auto 0 0; gap:0; }
-  .contact-list li{ padding:1rem 0; }
+  .contact-list li{ padding:.8rem 0; }
   .contact-list .val{ color:var(--heading); overflow-wrap:anywhere; }
   .contact-list a{ display:flex; align-items:center; gap:.9rem; color:inherit; text-decoration:none; }
   .contact-list a:hover .val{ color:var(--accent); }
   .contact-meta{ display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:1rem; }
-  .contact-meta div{ padding:1rem; border:1px solid var(--glass-brd); border-radius:16px;
+  .contact-meta div{ padding:.8rem; border:1px solid var(--glass-brd); border-radius:16px;
     background:color-mix(in srgb,var(--surface) 56%,transparent); }
   .contact-meta span{ display:block; margin-bottom:.3rem; color:var(--text-dim); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; }
   .contact-meta strong{ color:var(--heading); font-size:.88rem; }
-  .form.contact-form{ padding:clamp(1.6rem,3vw,2.5rem); }
+  .form.contact-form{ padding:clamp(1.35rem,2.5vw,1.85rem); }
   .form.contact-form::before{ display:none; }
-  .form-head{ display:flex; justify-content:space-between; gap:1.5rem; align-items:flex-start; margin-bottom:2rem; }
+  .form-head{ display:flex; justify-content:space-between; gap:1.5rem; align-items:flex-start; margin-bottom:1.25rem; }
   .form-kicker{ display:block; margin-bottom:.45rem; color:var(--accent); font-size:.68rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
   .form-head h3{ color:var(--heading); font-size:clamp(1.6rem,2.5vw,2.15rem); line-height:1.15; }
   .form-index{ flex:0 0 auto; color:var(--text-dim); font-size:.72rem; letter-spacing:.14em; }
@@ -1430,10 +1430,14 @@
   .field label{ margin-bottom:.55rem; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
   .field input,.field textarea,.field select{ padding:1rem 1.05rem; border-radius:16px;
     background:color-mix(in srgb,var(--bg) 42%,transparent); }
+  .contact-form .field{ margin-bottom:.8rem; }
+  .contact-form .field input,.contact-form .field select{ min-height:48px; padding:.75rem 1rem; }
+  .contact-form .field textarea{ min-height:106px; padding:.8rem 1rem; }
   .field input:hover,.field textarea:hover,.field select:hover{ border-color:color-mix(in srgb,var(--accent) 42%,var(--glass-brd)); }
   .form-footer{ display:flex; align-items:center; justify-content:space-between; gap:1.2rem; margin-top:.25rem; }
   .form-note{ max-width:28ch; color:var(--text-dim); font-size:.76rem; line-height:1.5; }
   .contact-submit{ min-width:190px; justify-content:center; }
+  .contact-info,.contact-form{ height:100%; }
   .contact-panel-head{ margin-bottom:1.25rem; }
   .contact-panel-head h3{ max-width:16ch; margin:0; }
   .contact-panel-head + .contact-list{ margin:0 0 .75rem; }
