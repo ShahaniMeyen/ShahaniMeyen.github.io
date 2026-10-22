@@ -735,7 +735,10 @@
     .hero-kicker{ font-size:.61rem; letter-spacing:.12em; }
     .hero-copy h1{ font-size:clamp(2.75rem,14vw,4.2rem); }
     .hero-bio{ font-size:.96rem; line-height:1.65; }
-    .hero-cta .btn{ flex:1 1 140px; justify-content:center; }
+    .hero-cta{ flex-wrap:nowrap; gap:.65rem; }
+    .hero-cta .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:.8rem .85rem;
+      gap:.4rem; font-size:.84rem; line-height:1; white-space:nowrap; }
+    .hero-cta .btn svg{ width:17px; height:17px; flex:0 0 auto; }
     .hero-meta span{ font-size:.66rem; }
     .hero-visual{ min-height:280px; }
   }
