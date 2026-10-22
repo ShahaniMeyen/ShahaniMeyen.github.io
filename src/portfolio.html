@@ -1459,7 +1459,7 @@
   }
 
   /* Full-screen mobile navigation */
-  .nav-close{ display:none; }
+  .nav-close,.nav-menu-brand,.nav-menu-footer{ display:none; }
   @media(max-width:820px){
     body.nav-open{ overflow:hidden; }
     body.nav-open nav.bar,body.nav-open nav.bar.shrunk{ top:0; left:0; width:100%; max-width:none;
@@ -1467,7 +1467,7 @@
       background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; transition:none; }
     body.nav-open nav.bar::after{ display:none; }
     body.nav-open nav.bar>.brand,body.nav-open nav.bar>.nav-actions{ visibility:hidden; pointer-events:none; }
-    .nav-links{ position:absolute; inset:0; top:0; right:0; width:100%; height:100%; max-height:none;
+    .nav-links{ position:absolute; inset:0; top:0; right:0; width:100%; height:100%; max-height:none; counter-reset:mobile-nav;
       z-index:1400; padding:6rem clamp(1.5rem,8vw,3rem) 2rem; border:0; border-radius:0;
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.25rem;
       overflow-y:auto; background:
@@ -1477,18 +1477,46 @@
       backdrop-filter:blur(28px) saturate(170%); -webkit-backdrop-filter:blur(28px) saturate(170%);
       box-shadow:none; transform:translateY(-100%); transform-origin:top; opacity:0; visibility:hidden;
       transition:transform .48s var(--ease),opacity .3s,visibility .3s; }
+    .nav-links::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.2;
+      background-image:linear-gradient(color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px),
+        linear-gradient(90deg,color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px);
+      background-size:54px 54px; mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 78%,transparent); }
+    .nav-links::after{ content:""; position:absolute; z-index:0; width:65vw; max-width:420px; aspect-ratio:1;
+      right:-25%; bottom:-18%; border-radius:50%; border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);
+      box-shadow:0 0 0 45px color-mix(in srgb,var(--accent) 4%,transparent),0 0 0 90px color-mix(in srgb,var(--accent) 3%,transparent); }
     .nav-links.open{ transform:translateY(0); opacity:1; visibility:visible; }
-    .nav-links a{ width:min(100%,420px); padding:clamp(.72rem,2.5vh,1.15rem) 1rem; border:0; border-radius:0;
-      color:var(--text-dim); font-family:var(--font-display); font-size:clamp(1.4rem,6vw,2.2rem);
-      font-weight:600; letter-spacing:-.025em; text-align:center; text-transform:none; }
+    .nav-links a{ counter-increment:mobile-nav; position:relative; z-index:2; width:min(100%,460px);
+      display:grid; grid-template-columns:2.3rem 1fr auto; align-items:center; gap:.8rem;
+      padding:clamp(.72rem,2.2vh,1rem) 1rem; border:1px solid transparent; border-radius:16px;
+      color:var(--text-dim); font-family:var(--font-display); font-size:clamp(1.25rem,5.2vw,1.8rem);
+      font-weight:600; letter-spacing:-.025em; text-align:left; text-transform:none; }
+    .nav-links a::before{ content:"0" counter(mobile-nav); position:static; width:auto; height:auto; border-radius:0;
+      background:none; color:var(--accent); font-family:var(--font-tech); font-size:.62rem; font-weight:700;
+      letter-spacing:.12em; opacity:.72; transform:none; }
+    .nav-links a::after{ content:"↗"; position:static; width:auto; height:auto; background:none; box-shadow:none;
+      color:var(--accent); font-family:var(--font-body); font-size:.9rem; opacity:.35; transform:none; }
     .nav-links a:hover{ background:transparent; color:var(--heading); }
-    .nav-links a.active{ color:var(--accent); background:transparent; box-shadow:none; }
-    .nav-links a.active::after{ left:50%; bottom:.35rem; width:34px; transform:translateX(-50%); }
+    .nav-links a.active{ color:var(--heading); border-color:color-mix(in srgb,var(--accent) 28%,transparent);
+      background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 13%,transparent),color-mix(in srgb,var(--surface) 32%,transparent));
+      box-shadow:inset 3px 0 0 var(--accent),0 16px 35px -28px var(--accent); }
+    .nav-links a.active::before,.nav-links a.active::after{ opacity:1; }
     .nav-close{ position:absolute; top:1.1rem; right:1.1rem; display:inline-flex; align-items:center; gap:.55rem;
+      z-index:3;
       min-height:44px; padding:.65rem .85rem .65rem 1rem; border:1px solid var(--glass-brd); border-radius:999px;
       background:color-mix(in srgb,var(--surface) 74%,transparent); color:var(--heading); cursor:pointer;
       font-family:var(--font-tech); font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .nav-close svg{ width:18px; height:18px; }
+    .nav-menu-brand{ position:absolute; top:1.1rem; left:1.1rem; z-index:3; display:flex; align-items:center; gap:.7rem; }
+    .nav-menu-brand>span{ width:44px; height:44px; display:grid; place-items:center; border:1px solid var(--accent);
+      border-radius:50%; color:var(--accent); font-family:var(--font-display); font-weight:700; box-shadow:0 0 24px -14px var(--accent); }
+    .nav-menu-brand div{ display:flex; flex-direction:column; gap:.12rem; }
+    .nav-menu-brand b{ color:var(--heading); font-size:.78rem; }
+    .nav-menu-brand small{ color:var(--text-dim); font-family:var(--font-tech); font-size:.55rem; letter-spacing:.12em; text-transform:uppercase; }
+    .nav-menu-footer{ position:absolute; left:1.5rem; right:1.5rem; bottom:1.2rem; z-index:3; display:flex;
+      align-items:center; justify-content:space-between; gap:1rem; padding-top:.85rem; border-top:1px solid var(--glass-brd);
+      color:var(--text-dim); font-family:var(--font-tech); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; }
+    .nav-menu-footer span:first-child{ display:inline-flex; align-items:center; gap:.5rem; }
+    .nav-menu-footer span:first-child::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); }
   }
 
 </style>
@@ -1530,6 +1558,10 @@
     </svg>
   </a>
   <div class="nav-links" id="navlinks">
+    <div class="nav-menu-brand" aria-hidden="true">
+      <span>SM</span>
+      <div><b>Shahani Meyen</b><small>Portfolio navigation</small></div>
+    </div>
     <button class="nav-close" id="nav-close" type="button" aria-label="Close menu">
       <span>Close</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -1540,6 +1572,7 @@
     <a href="#experience">Experience</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
+    <div class="nav-menu-footer" aria-hidden="true"><span>Open to connect</span><span>Sri Lanka · GMT+5:30</span></div>
   </div>
   <div class="nav-actions">
     <button class="nav-theme" id="nav-theme" aria-label="Toggle dark mode">
