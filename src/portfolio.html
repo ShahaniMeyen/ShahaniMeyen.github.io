@@ -1763,7 +1763,7 @@
           <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
         </div>
         <div class="field"><label for="f-subject">Subject</label>
-          <select id="f-subject" name="subject"><option>Career Opportunity</option><option>Collaboration</option><option>General Inquiry</option></select></div>
+          <input id="f-subject" name="subject" type="text" required placeholder="What would you like to discuss?" /></div>
         <div class="field"><label for="f-msg">Your message</label><textarea id="f-msg" name="message" required placeholder="Share a few details about your opportunity or idea..."></textarea></div>
         <div class="form-footer">
           <p class="form-note">Your details stay private and are only used to reply to your message.</p>
@@ -2025,7 +2025,7 @@ document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
   const msg = document.getElementById('form-msg');
   const data = new FormData(e.target);
-  if(!data.get('name') || !data.get('email') || !data.get('message')){
+  if(!data.get('name') || !data.get('email') || !data.get('subject') || !data.get('message')){
     msg.style.color = 'var(--destructive, #e55)'; msg.textContent = 'Please fill in all fields.';
     return;
   }
