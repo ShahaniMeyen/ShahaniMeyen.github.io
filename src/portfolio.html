@@ -1448,13 +1448,16 @@
   @media(max-width:820px){
     .contact-heading{ grid-template-columns:1fr; gap:1rem; margin-bottom:2rem; }
     .contact-heading .lead{ margin-left:0; }
-    .contact-info{ min-height:auto; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .contact-info,.contact-form{ min-height:auto; height:auto; }
   }
   @media(max-width:560px){
     .contact-heading{ margin-bottom:1.5rem; }
+    .contact-heading .h-section{ max-width:100%; font-size:clamp(1.9rem,8.2vw,2.35rem); }
     .form-row,.contact-meta{ grid-template-columns:1fr; }
     .form-footer{ align-items:stretch; flex-direction:column; }
     .contact-submit{ width:100%; }
+    .contact-info,.form.contact-form{ padding:1.25rem; }
   }
 
 </style>
