@@ -1,6 +1,6 @@
 <div align="center">
 
-# Shahani Meyen - Hospitality Portfolio
+# Shahani Meyen - Personal Portfolio
 
 ### First impressions. Lasting loyalty.
 
