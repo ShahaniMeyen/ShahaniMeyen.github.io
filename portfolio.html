@@ -451,6 +451,8 @@
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{ animation:none !important; transition:none !important; }
     .reveal,.tl-item{ opacity:1; transform:none; }
+    .loader-emblem rect,.loader-emblem path{ stroke-dashoffset:0; }
+    .loader-emblem circle{ opacity:1; }
     html{ scroll-behavior:auto; }
   }
 
@@ -1106,43 +1108,54 @@
     .section-heading .h-section{ max-width:20ch; }
   }
 
-  /* Futuristic abstract loading sequence */
+  /* Personal portfolio loading sequence */
   #loader{ background:
-      radial-gradient(circle at 50% 48%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 28rem),
+      radial-gradient(circle at 50% 46%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 22rem),
       var(--bg); }
-  #loader::before{ width:42rem; height:42rem; opacity:.75; filter:blur(55px); }
-  #loader::after{ content:""; position:absolute; inset:0; opacity:.16; pointer-events:none;
-    background-image:linear-gradient(color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px),
-      linear-gradient(90deg,color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1px);
-    background-size:42px 42px; -webkit-mask-image:radial-gradient(circle,#000,transparent 68%); mask-image:radial-gradient(circle,#000,transparent 68%); }
-  .loader-inner{ width:250px; gap:1.8rem; }
-  .loader-orbit{ position:relative; width:150px; height:150px; display:grid; place-items:center; }
-  .loader-ring{ position:absolute; border-radius:50%; border:1px solid color-mix(in srgb,var(--accent) 32%,transparent); }
-  .loader-ring.r1{ inset:0; border-style:dashed; animation:loaderOrbit 7s linear infinite; }
-  .loader-ring.r2{ inset:20px; border-color:color-mix(in srgb,var(--accent-2) 48%,transparent); animation:loaderOrbit 4s linear infinite reverse; }
-  .loader-ring.r2::before{ content:""; position:absolute; top:7px; left:12px; width:7px; height:7px; border-radius:50%;
-    background:var(--accent); box-shadow:0 0 18px var(--accent); }
-  .loader-ring.r3{ inset:43px; border:0; background:conic-gradient(from 90deg,transparent,var(--accent),transparent 38%);
-    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0); mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);
-    animation:loaderOrbit 1.4s linear infinite; }
-  .loader-core{ position:relative; width:20px; height:20px; border-radius:50%; background:var(--grad);
-    box-shadow:0 0 12px var(--accent),0 0 42px var(--accent),0 0 80px color-mix(in srgb,var(--accent) 55%,transparent);
-    animation:corePulse 1.2s var(--ease) infinite alternate; }
-  .loader-signal{ display:flex; align-items:center; gap:7px; height:16px; }
-  .loader-signal i{ display:block; width:3px; height:7px; border-radius:4px; background:var(--accent);
-    box-shadow:0 0 8px var(--accent); animation:signalWave .8s ease-in-out infinite alternate; }
-  .loader-signal i:nth-child(2){ animation-delay:.12s; }.loader-signal i:nth-child(3){ animation-delay:.24s; }
-  .loader-signal i:nth-child(4){ animation-delay:.36s; }.loader-signal i:nth-child(5){ animation-delay:.48s; }
-  .loader-copy{ display:flex; flex-direction:column; align-items:center; gap:.45rem; }
-  .loader-copy b{ color:var(--heading); font-family:var(--font-display); font-size:clamp(1.05rem,2vw,1.35rem);
-    font-weight:600; letter-spacing:.04em; animation:fadeUp .7s var(--ease) .12s both; }
-  .loader-copy span{ color:var(--accent); font-size:.6rem; font-weight:800; letter-spacing:.3em;
+  #loader::before{ content:""; position:absolute; width:38rem; height:38rem; border-radius:50%; opacity:.72;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 64%);
+    filter:blur(62px); animation:loaderAura 2.6s ease-in-out infinite alternate; }
+  #loader::after{ content:""; position:absolute; inset:0; opacity:.14; pointer-events:none;
+    background-image:linear-gradient(color-mix(in srgb,var(--accent) 14%,transparent) 1px,transparent 1px),
+      linear-gradient(90deg,color-mix(in srgb,var(--accent) 14%,transparent) 1px,transparent 1px);
+    background-size:48px 48px; -webkit-mask-image:radial-gradient(circle,#000,transparent 64%); mask-image:radial-gradient(circle,#000,transparent 64%); }
+  .loader-inner{ width:min(88vw,360px); gap:1.7rem; }
+  .loader-stage{ position:relative; width:148px; aspect-ratio:1; display:grid; place-items:center; isolation:isolate; }
+  .loader-stage::before{ content:""; position:absolute; inset:13px; border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);
+    border-radius:35px; transform:rotate(45deg); animation:loaderFrame 2.4s var(--ease) infinite alternate; }
+  .loader-stage::after{ content:""; position:absolute; inset:34px; z-index:-1; border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent) 34%,transparent),transparent 68%);
+    filter:blur(12px); animation:loaderBreathe 1.3s ease-in-out infinite alternate; }
+  .loader-emblem{ position:relative; z-index:2; width:78px; height:78px; filter:drop-shadow(0 0 18px color-mix(in srgb,var(--accent) 35%,transparent)); }
+  .loader-emblem rect,.loader-emblem path{ stroke-dasharray:180; stroke-dashoffset:180; animation:loaderTrace 1.25s var(--ease) forwards; }
+  .loader-emblem path{ animation-delay:.18s; }
+  .loader-emblem circle{ opacity:0; transform-origin:center; animation:loaderDot .5s var(--ease) .9s forwards; }
+  .loader-scan{ position:absolute; z-index:3; left:28px; right:28px; top:28px; height:1px;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent); box-shadow:0 0 12px var(--accent);
+    animation:loaderScan 1.35s ease-in-out infinite alternate; }
+  .loader-corners{ position:absolute; inset:0; animation:loaderTurn 10s linear infinite; }
+  .loader-corners i{ position:absolute; width:18px; height:18px; color:color-mix(in srgb,var(--accent) 58%,transparent); }
+  .loader-corners i:nth-child(1){ top:0; left:0; border-top:2px solid; border-left:2px solid; }
+  .loader-corners i:nth-child(2){ top:0; right:0; border-top:2px solid; border-right:2px solid; }
+  .loader-corners i:nth-child(3){ bottom:0; right:0; border-bottom:2px solid; border-right:2px solid; }
+  .loader-corners i:nth-child(4){ bottom:0; left:0; border-bottom:2px solid; border-left:2px solid; }
+  .loader-copy{ display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+  .loader-copy b{ color:var(--heading); font-family:var(--font-display); font-size:clamp(1.05rem,4vw,1.4rem);
+    font-weight:600; letter-spacing:-.02em; animation:fadeUp .7s var(--ease) .12s both; }
+  .loader-copy span{ color:var(--accent); font-size:.58rem; font-weight:800; letter-spacing:.24em;
     text-transform:uppercase; animation:fadeUp .7s var(--ease) .25s both; }
-  .loader-bar{ width:150px; height:1px; background:color-mix(in srgb,var(--accent) 18%,transparent); }
-  .loader-bar span{ box-shadow:0 0 12px var(--accent); }
-  @keyframes loaderOrbit{ to{ transform:rotate(360deg); } }
-  @keyframes corePulse{ to{ transform:scale(1.28); filter:brightness(1.25); } }
-  @keyframes signalWave{ to{ height:16px; opacity:.45; } }
+  .loader-pulse{ display:flex; align-items:center; justify-content:center; gap:8px; height:8px; }
+  .loader-pulse i{ width:5px; height:5px; border-radius:50%; background:var(--accent); box-shadow:0 0 9px var(--accent);
+    animation:loaderBeat .8s ease-in-out infinite alternate; }
+  .loader-pulse i:nth-child(2){ animation-delay:.16s; }.loader-pulse i:nth-child(3){ animation-delay:.32s; }
+  @keyframes loaderFrame{ to{ transform:rotate(135deg) scale(1.04); border-radius:48px; } }
+  @keyframes loaderAura{ to{ opacity:1; transform:scale(1.12); } }
+  @keyframes loaderBreathe{ to{ transform:scale(1.24); opacity:.58; } }
+  @keyframes loaderTrace{ to{ stroke-dashoffset:0; } }
+  @keyframes loaderDot{ to{ opacity:1; transform:scale(1); } }
+  @keyframes loaderScan{ to{ top:119px; opacity:.35; } }
+  @keyframes loaderTurn{ to{ transform:rotate(360deg); } }
+  @keyframes loaderBeat{ to{ transform:translateY(-5px); opacity:.35; } }
 
   /* Futuristic typography details */
   .hero-copy h1,.h-section{ font-feature-settings:"ss01" 1,"kern" 1; }
@@ -1445,17 +1458,19 @@
 <body>
 
 <!-- LOADER -->
-<div id="loader" role="status" aria-label="Loading">
+<div id="loader" role="status" aria-label="Loading personal portfolio">
   <div class="loader-inner">
-    <div class="loader-orbit" aria-hidden="true">
-      <span class="loader-ring r1"></span>
-      <span class="loader-ring r2"></span>
-      <span class="loader-ring r3"></span>
-      <span class="loader-core"></span>
+    <div class="loader-stage" aria-hidden="true">
+      <span class="loader-corners"><i></i><i></i><i></i><i></i></span>
+      <svg class="loader-emblem" viewBox="0 0 48 48" fill="none">
+        <rect x="2.5" y="2.5" width="43" height="43" rx="14" stroke="var(--accent)" stroke-width="1.5"/>
+        <path d="M32.5 14.8c-2.2-1.8-5.1-2.8-8.3-2.8-5.4 0-9.2 2.7-9.2 6.9 0 4.5 3.9 5.8 8.9 6.9 4.2.9 6.6 1.9 6.6 4.8 0 3.1-2.7 5.2-6.9 5.2-3.7 0-6.8-1.3-9.2-3.6" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="35.5" cy="12.5" r="2" fill="var(--accent)"/>
+      </svg>
+      <span class="loader-scan"></span>
     </div>
-    <div class="loader-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="loader-copy"><b>Preparing your arrival</b><span>Experience loading</span></div>
-    <div class="loader-bar"><span></span></div>
+    <div class="loader-copy"><b>Crafting the first impression</b><span>Personal portfolio loading</span></div>
+    <div class="loader-pulse" aria-hidden="true"><i></i><i></i><i></i></div>
   </div>
 </div>
 
