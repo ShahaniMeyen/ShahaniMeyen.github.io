@@ -149,15 +149,6 @@
   @keyframes spin{ to{ transform:rotate(360deg); } }
 
   /* ============================================================
-     CURSOR GLOW
-     ============================================================ */
-  #cursor-glow{ position:fixed; top:0; left:0; width:34px; height:34px; border-radius:50%;
-    background:radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    pointer-events:none; z-index:1500; mix-blend-mode:screen;
-    transform:translate(-50%,-50%); transition:width 0.25s, height 0.25s, opacity 0.3s; opacity:0.7; }
-  @media (hover:none){ #cursor-glow{ display:none; } }
-
-  /* ============================================================
      NAVBAR
      ============================================================ */
   nav.bar{ position:fixed; top:14px; left:50%; width:min(1180px, calc(100% - 28px)); z-index:1200;
@@ -1540,9 +1531,6 @@
   </div>
 </div>
 
-<!-- CURSOR GLOW -->
-<div id="cursor-glow" aria-hidden="true"></div>
-
 <!-- NAVBAR -->
 <nav class="bar" id="navbar">
   <a href="#hero" class="brand" aria-label="Home">
@@ -2024,24 +2012,6 @@ function type(){
 }
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) type();
 else tagEl.innerHTML = phrases[0] + cursor;
-
-/* ============================================================
-   CURSOR GLOW
-   ============================================================ */
-const glow = document.getElementById('cursor-glow');
-if(window.matchMedia('(hover: hover)').matches){
-  let gx=0, gy=0, tx=0, ty=0;
-  window.addEventListener('mousemove', e => { tx=e.clientX; ty=e.clientY; });
-  (function loop(){
-    gx += (tx-gx)*0.18; gy += (ty-gy)*0.18;
-    glow.style.left = gx+'px'; glow.style.top = gy+'px';
-    requestAnimationFrame(loop);
-  })();
-  document.querySelectorAll('a, button, .bento-card, .glass-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { glow.style.width='56px'; glow.style.height='56px'; glow.style.opacity='1'; });
-    el.addEventListener('mouseleave', () => { glow.style.width='34px'; glow.style.height='34px'; glow.style.opacity='0.7'; });
-  });
-}
 
 /* ============================================================
    MAGNETIC BUTTONS
