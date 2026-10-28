@@ -1,6 +1,6 @@
 <div align="center">
 
-# Shahani Meyen — Hospitality Portfolio
+# Shahani Meyen - Hospitality Portfolio
 
 ### First impressions. Lasting loyalty.
 
@@ -19,18 +19,18 @@ A modern, responsive portfolio created for **Shahani Thasneem Meyen**, presentin
 
 ## About the Project
 
-This portfolio translates hospitality values—warmth, confidence, attention to detail, and calm service—into a premium digital experience. It is intentionally more expressive than a conventional résumé while remaining easy for recruiters and hiring teams to scan.
+This portfolio translates hospitality values - warmth, confidence, attention to detail, and calm service - into a premium digital experience. It is intentionally more expressive than a conventional résumé while remaining easy for recruiters and hiring teams to scan.
 
 The interface combines editorial typography, warm gold accents, subtle motion, layered depth, and concise content. Every section has been refined for both desktop and mobile viewing.
 
 ### Portfolio sections
 
-- **Home** — a focused introduction with direct contact and CV actions.
-- **About** — profile, service philosophy, and professional portrait.
-- **Skills** — guest-service capabilities displayed through a modern card system.
-- **Experience** — career history and education presented as a clear journey.
-- **Services** — practical strengths Shahani brings to a hospitality team.
-- **Contact** — direct email details and an accessible message composer.
+- **Home** - a focused introduction with direct contact and CV actions.
+- **About** - profile, service philosophy, and professional portrait.
+- **Skills** - guest-service capabilities displayed through a modern card system.
+- **Experience** - career history and education presented as a clear journey.
+- **Services** - practical strengths Shahani brings to a hospitality team.
+- **Contact** - direct email details and an accessible message composer.
 
 ---
 
@@ -119,9 +119,9 @@ Portfolio/
 
 Install the following before running the project:
 
-- [Node.js](https://nodejs.org/) — a current LTS release is recommended.
-- npm — included with Node.js.
-- Git — required only when cloning the repository.
+- [Node.js](https://nodejs.org/) - a current LTS release is recommended.
+- npm - included with Node.js.
+- Git - required only when cloning the repository.
 
 ### 1. Clone the repository
 
@@ -210,9 +210,9 @@ Search `src/portfolio.html` for `shahani.meyen@gmail.com`. Update both the visib
 
 The interface adapts across three broad layout ranges:
 
-- **Desktop** — two-column hero, editorial layouts, and floating navigation.
-- **Tablet** — simplified grids, resized artwork, and stacked content where necessary.
-- **Mobile** — compact typography, content-first About layout, full-screen navigation, single-column cards, and touch-friendly controls.
+- **Desktop** - two-column hero, editorial layouts, and floating navigation.
+- **Tablet** - simplified grids, resized artwork, and stacked content where necessary.
+- **Mobile** - compact typography, content-first About layout, full-screen navigation, single-column cards, and touch-friendly controls.
 
 Motion respects the user’s `prefers-reduced-motion` setting, and interactive controls maintain practical touch sizes.
 
