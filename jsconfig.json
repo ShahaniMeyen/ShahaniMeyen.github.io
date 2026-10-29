@@ -4,7 +4,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "bundler",
     "lib": ["esnext", "dom"],
@@ -16,6 +15,6 @@
     "resolveJsonModule": true,
     "types": ["vite/client"]
   },
-  "include": ["src/main.jsx", "src/App.jsx", "src/pages/Home.jsx"],
-  "exclude": ["node_modules", "dist", "src/vite-plugins", "src/components/ui", "src/api", "src/lib"]
+  "include": ["vite.config.js"],
+  "exclude": ["node_modules", "dist"]
 } 

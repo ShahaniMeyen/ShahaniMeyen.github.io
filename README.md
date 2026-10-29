@@ -6,7 +6,7 @@
 
 A modern, responsive portfolio created for **Shahani Thasneem Meyen**, presenting her guest-service experience, capabilities, career journey, and professional profile through a refined hospitality-inspired interface.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=06121f)](https://react.dev/)
+[![HTML5](https://img.shields.io/badge/HTML5-Semantic-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![Responsive](https://img.shields.io/badge/Design-Responsive-D4AF37?style=for-the-badge&logo=css3&logoColor=white)](#responsive-experience)
@@ -74,18 +74,16 @@ Typography uses four complementary roles:
 
 | Layer | Technology |
 | --- | --- |
-| Application shell | React 18 |
+| Application | Semantic HTML, modern CSS, and vanilla JavaScript |
 | Development and bundling | Vite 8 |
-| Main portfolio document | Semantic HTML, modern CSS, and vanilla JavaScript |
-| Styling foundation | Tailwind CSS plus portfolio-specific CSS variables |
+| Main portfolio document | `src/portfolio.html` |
+| Styling foundation | Portfolio-specific CSS variables and responsive CSS |
 | Icons and artwork | Inline SVG and optimized image assets |
 | Code quality | ESLint and TypeScript checking through `jsconfig.json` |
 
 ### Architecture note
 
-The React application intentionally stays lightweight. [`src/pages/Home.jsx`](./src/pages/Home.jsx) imports [`src/portfolio.html`](./src/portfolio.html) as raw text and renders it inside a full-viewport `iframe` using `srcDoc`. This keeps the portfolio experience self-contained while still using Vite for local development and production output.
-
-`src/portfolio.html` is the primary portfolio document used by the React application. The root [`portfolio.html`](./portfolio.html) is maintained as a standalone mirror/reference.
+[`src/portfolio.html`](./src/portfolio.html) is the single source of truth. A small Vite HTML-entry plugin serves that document directly at the site root, so portfolio content is present in the main page for search engines, assistive technology, and link previews without an iframe or duplicate mirror.
 
 ---
 
@@ -94,18 +92,11 @@ The React application intentionally stays lightweight. [`src/pages/Home.jsx`](./
 ```text
 Portfolio/
 ├── public/
-│   ├── hospitality-hero.png   # 3D hospitality hero artwork
+│   ├── hospitality-hero.webp  # Optimized 3D hero artwork
 │   ├── profile.jpeg           # About-section portrait
 │   └── ShahaniCV.pdf          # Downloadable résumé
 ├── src/
-│   ├── pages/
-│   │   └── Home.jsx           # Loads the portfolio document
-│   ├── components/            # Reusable UI primitives
-│   ├── portfolio.html         # Main portfolio markup, styles, and interactions
-│   ├── App.jsx                # Application entry component
-│   ├── main.jsx               # React DOM bootstrap
-│   └── index.css              # Tailwind layers and shared tokens
-├── portfolio.html             # Standalone portfolio mirror
+│   └── portfolio.html         # Single source for markup, styles, and interactions
 ├── vite.config.js             # Vite configuration
 ├── package.json               # Dependencies and project scripts
 └── README.md                  # Project documentation
@@ -191,7 +182,7 @@ Replace `public/ShahaniCV.pdf` while preserving the filename. The Home section�
 
 ### Update the 3D hero artwork
 
-Replace `public/hospitality-hero.png` with a transparent PNG or update its source path in the Home section.
+Replace `public/hospitality-hero.webp` with an optimized transparent WebP or update its source path in the Home section.
 
 ### Change colours or typography
 
