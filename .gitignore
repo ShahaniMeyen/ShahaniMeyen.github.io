@@ -34,3 +34,6 @@ dist-ssr
 
 .env
 .vite
+
+# Local mobile QA screenshots
+.mobile-qa/
