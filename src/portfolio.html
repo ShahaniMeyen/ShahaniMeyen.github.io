@@ -378,6 +378,45 @@
   ::view-transition-old(root){ z-index:1; }
   ::view-transition-new(root){ z-index:2; }
 
+  /* ---- mobile & touch motion ---- */
+  @media(max-width:860px) and (prefers-reduced-motion:no-preference){
+    /* menu: circle opens from the burger, links rise in one by one */
+    .nav-links{ clip-path:circle(0 at calc(100% - 36px) 36px);
+      transition:clip-path .7s cubic-bezier(.77,0,.18,1), opacity .3s, transform .35s var(--ease), visibility 0s .7s; }
+    .nav-links.open{ clip-path:circle(150% at calc(100% - 36px) 36px); transition-delay:0s,0s,0s,0s; }
+    .nav-links a{ opacity:0; transform:translateY(34px); transition:opacity .5s var(--ease), transform .6s var(--ease), color .2s; }
+    .nav-links.open a{ opacity:1; transform:none; }
+    .nav-links.open a:nth-of-type(1){ transition-delay:.28s; } .nav-links.open a:nth-of-type(2){ transition-delay:.34s; }
+    .nav-links.open a:nth-of-type(3){ transition-delay:.40s; } .nav-links.open a:nth-of-type(4){ transition-delay:.46s; }
+    .nav-links.open a:nth-of-type(5){ transition-delay:.52s; } .nav-links.open a:nth-of-type(6){ transition-delay:.58s; }
+    .nav-close svg{ transition:transform .5s var(--ease) .3s; transform:rotate(-90deg); }
+    .nav-links.open .nav-close svg{ transform:none; }
+    .burger{ transition:transform .3s var(--ease), background .25s; }
+    .burger:active{ transform:scale(.9); }
+
+    /* cards rise and settle as they scroll in */
+    .cap.reveal,.edu.reveal,.job.reveal,.svc.reveal{ transform:translateY(34px) scale(.97); }
+    .cap.reveal.in,.edu.reveal.in,.job.reveal.in,.svc.reveal.in{ transform:none; }
+    .cap .tags li{ opacity:0; transform:translateY(8px); transition:opacity .45s var(--ease), transform .45s var(--ease); }
+    .cap.in .tags li{ opacity:1; transform:none; }
+    .cap.in .tags li:nth-child(1){ transition-delay:.25s; } .cap.in .tags li:nth-child(2){ transition-delay:.33s; }
+    .cap.in .tags li:nth-child(3){ transition-delay:.41s; } .cap.in .tags li:nth-child(4){ transition-delay:.49s; }
+    .job.in li{ animation:liIn .6s var(--ease) both; }
+    .job.in li:nth-child(1){ animation-delay:.15s; } .job.in li:nth-child(2){ animation-delay:.22s; } .job.in li:nth-child(3){ animation-delay:.29s; }
+    .job.in li:nth-child(4){ animation-delay:.36s; } .job.in li:nth-child(5){ animation-delay:.43s; } .job.in li:nth-child(6){ animation-delay:.5s; }
+    .job.in li:nth-child(7){ animation-delay:.57s; }
+    @keyframes liIn{ from{ opacity:0; transform:translateX(-14px); } to{ opacity:1; transform:none; } }
+  }
+  /* touch feedback: no hover on phones, so respond to the press */
+  @media(hover:none){
+    .cap,.edu,.principle,.svc{ transition:transform .25s var(--ease), background .3s; }
+    .cap:active,.edu:active,.principle:active{ transform:scale(.97); }
+    .svc:active .svc-icon{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
+    .btn:active{ transform:scale(.96); }
+    .nav-links a:active{ color:var(--accent); }
+    .nav-theme:active svg{ transform:rotate(40deg); }
+  }
+
   @media(max-width:860px){ .nav-ind{ display:none; } .nav-links a.active{ background:none; } }
   @media(prefers-reduced-motion:reduce){
     .w>span,.hero-fade,.hero-photo,.hero-photo img,.hero-photo figcaption{ transform:none !important; opacity:1 !important; clip-path:none !important; }
