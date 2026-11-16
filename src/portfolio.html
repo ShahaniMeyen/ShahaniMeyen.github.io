@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add("js")</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shahani Meyen | Personal Portfolio</title>
   <meta name="description" content="Guest relations, front desk and facility management professional with two years of client-facing experience. Fluent in English and Sinhala, conversational Tamil." />
@@ -9,7 +10,7 @@
   <meta name="author" content="Thasneem Shahani Meyen" />
   <meta name="theme-color" content="#f6f3ec" />
   <link rel="preload" href="/profile.jpeg" as="image" type="image/jpeg" fetchpriority="high" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -314,9 +315,78 @@
     html{ scroll-behavior:auto; }
     .loader-bar i{ transform:none; }
   }
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  .progress{ position:fixed; top:0; left:0; right:0; height:3px; z-index:2500; background:var(--accent); transform:scaleX(0); transform-origin:0 50%; pointer-events:none; }
+
+  /* loader slides away */
+  #loader{ transition:transform .9s cubic-bezier(.77,0,.18,1), visibility 0s .9s; }
+  #loader.done{ opacity:1; transform:translateY(-100%); }
+
+  /* hero load-in */
+  .w{ display:inline-block; overflow:hidden; vertical-align:top; padding:0 .1em .14em 0; margin:0 -.1em -.14em 0; }
+  .w>span{ display:inline-block; }
+  .js:not(.is-ready) .w>span{ transform:translateY(112%); }
+  .js .w>span{ transition:transform 1s var(--ease); transition-delay:calc(var(--i,0) * 80ms + .15s); }
+  .hero-fade{ transition:opacity .8s var(--ease), transform .8s var(--ease); transition-delay:var(--d,0s); }
+  .js:not(.is-ready) .hero-fade{ opacity:0; transform:translateY(18px); }
+  .hero-photo{ transition:clip-path 1.2s var(--ease) .2s; clip-path:inset(0 round 36px); }
+  .js:not(.is-ready) .hero-photo{ clip-path:inset(14% 10% 14% 10% round 36px); }
+  .hero-photo img{ transform:scale(1.08); translate:0 var(--py,0px); transition:transform 1.6s var(--ease) .2s; will-change:translate; }
+  .js:not(.is-ready) .hero-photo img{ transform:scale(1.25); }
+  .hero-photo figcaption{ transition:opacity .7s var(--ease) 1s, transform .7s var(--ease) 1s; }
+  .js:not(.is-ready) .hero-photo figcaption{ opacity:0; transform:translateY(14px); }
+
+  /* nav: sliding indicator */
+  .nav-links{ position:relative; }
+  .nav-ind{ position:absolute; left:0; top:0; width:0; height:0; border-radius:999px; background:color-mix(in srgb,var(--fg) 8%,transparent);
+    opacity:0; pointer-events:none; }
+  .nav-ind.anim{ transition:transform .5s var(--ease), width .5s var(--ease), height .5s var(--ease), top .5s var(--ease), opacity .3s; }
+  .nav-links a.active{ background:none; }
+  .nav-links a{ position:relative; z-index:1; }
+
+  /* hover motion */
+  .cap-icon{ transition:transform .45s var(--ease), background .3s; }
+  .cap:hover .cap-icon{ transform:rotate(-10deg) scale(1.1); }
+  .svc{ transition:background .35s; }
+  .svc-icon{ transition:background .3s, color .3s, border-color .3s, transform .45s var(--ease); }
+  .svc:hover .svc-icon{ background:var(--accent); border-color:var(--accent); color:var(--ink); transform:translateY(-4px); }
+  .principle{ transition:transform .35s var(--ease); }
+  .principle:hover{ transform:translateY(-5px); }
+  .edu{ transition:transform .35s var(--ease); }
+  .edu:hover{ transform:translateY(-5px); }
+  .job h3{ transition:color .25s, transform .35s var(--ease); }
+  .job:hover h3{ color:var(--accent); transform:translateX(6px); }
+  .tags li{ transition:transform .25s var(--ease); }
+  .cap:hover .tags li{ transform:translateY(-2px); }
+  .mail{ background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat; border-bottom:0; padding-bottom:.4rem;
+    transition:background-size .4s var(--ease), color .2s; }
+  .mail:hover{ background-size:0 2px; background-position:100% 100%; }
+  .mail svg{ transition:transform .35s var(--ease); }
+  .mail:hover svg{ transform:translate(3px,-3px); }
+  .btn-primary,.btn-ghost{ transition:background .25s,color .25s,border-color .25s,transform .35s var(--ease); }
+  .btn:active{ transform:scale(.97); }
+  .nav-theme svg{ transition:transform .5s var(--ease); }
+  .nav-theme:hover svg{ transform:rotate(25deg); }
+
+  /* theme switch: circular reveal */
+  ::view-transition-old(root),::view-transition-new(root){ animation:none; mix-blend-mode:normal; }
+  ::view-transition-old(root){ z-index:1; }
+  ::view-transition-new(root){ z-index:2; }
+
+  @media(max-width:860px){ .nav-ind{ display:none; } .nav-links a.active{ background:none; } }
+  @media(prefers-reduced-motion:reduce){
+    .w>span,.hero-fade,.hero-photo,.hero-photo img,.hero-photo figcaption{ transform:none !important; opacity:1 !important; clip-path:none !important; }
+    #loader.done{ transform:none; opacity:0; }
+    .progress{ display:none; }
+  }
   </style>
 </head>
 <body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- LOADER -->
 <div id="loader" role="status" aria-label="Loading personal portfolio">
@@ -335,6 +405,7 @@
     </svg>
   </a>
   <div class="nav-links" id="navlinks">
+    <span class="nav-ind" aria-hidden="true"></span>
     <button class="nav-close" id="nav-close" type="button" aria-label="Close menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
@@ -359,10 +430,9 @@
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></i>Guest relations, front desk &amp; facilities</span>
-      <h1>First impressions. <em>Lasting loyalty.</em></h1>
-      <p class="hero-bio">I create smooth arrivals, thoughtful service, and guest experiences worth returning for.</p>
-      <div class="hero-cta">
+      <h1><span class="w"><span style="--i:0">First</span></span> <span class="w"><span style="--i:1">impressions.</span></span> <em><span class="w"><span style="--i:2">Lasting</span></span> <span class="w"><span style="--i:3">loyalty.</span></span></em></h1>
+      <p class="hero-bio hero-fade" style="--d:.45s">I create smooth arrivals, thoughtful service, and guest experiences worth returning for.</p>
+      <div class="hero-cta hero-fade" style="--d:.55s">
         <a href="#contact" class="btn btn-primary">Let's talk
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -371,7 +441,7 @@
           Download CV
         </a>
       </div>
-      <div class="hero-facts">
+      <div class="hero-facts hero-fade" style="--d:.65s">
         <div class="fact"><b>2 yrs</b><span>Client-facing</span></div>
         <div class="fact"><b>3</b><span>Languages</span></div>
         <div class="fact"><b>Sri Lanka</b><span>Based in</span></div>
@@ -606,7 +676,11 @@
   const loader = document.getElementById('loader');
   let seen = false;
   try { seen = sessionStorage.getItem('portfolio-intro-seen') === '1'; } catch {}
-  const finish = () => { if(loader) loader.classList.add('done'); };
+  const finish = () => {
+    if(loader) loader.classList.add('done');
+    setTimeout(() => document.documentElement.classList.add('is-ready'), 250);
+  };
+  setTimeout(() => document.documentElement.classList.add('is-ready'), 4000);
   if(seen){ finish(); return; }
   const hide = () => setTimeout(() => {
     finish();
@@ -630,8 +704,20 @@ if(savedTheme !== 'light' && savedTheme !== 'dark'){
   savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 applyTheme(savedTheme, false);
-document.getElementById('nav-theme').addEventListener('click', () => {
-  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+document.getElementById('nav-theme').addEventListener('click', e => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!document.startViewTransition || calm){ applyTheme(next); return; }
+  const r = e.currentTarget.getBoundingClientRect();
+  const x = r.left + r.width / 2, y = r.top + r.height / 2;
+  const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  const t = document.startViewTransition(() => applyTheme(next));
+  t.ready.then(() => {
+    root.animate(
+      { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+      { duration: 700, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: '::view-transition-new(root)' }
+    );
+  }).catch(() => {});
 });
 
 /* NAVBAR */
@@ -643,10 +729,22 @@ const navAnchors = document.querySelectorAll('.nav-links a');
 const mobileMenuQuery = window.matchMedia('(max-width: 860px)');
 const pageRegions = [document.querySelector('main'), document.querySelector('footer'), document.getElementById('to-top')].filter(Boolean);
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('shrunk', window.scrollY > 40);
-  document.getElementById('to-top').classList.toggle('show', window.scrollY > 600);
+const progressBar = document.getElementById('progress');
+const heroImg = document.querySelector('.hero-photo img');
+const calmMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let ticking = false;
+function onScroll(){
+  ticking = false;
+  const y = window.scrollY;
+  navbar.classList.toggle('shrunk', y > 40);
+  document.getElementById('to-top').classList.toggle('show', y > 600);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+  if(heroImg && !calmMotion.matches && y < 900) heroImg.style.setProperty('--py', (y * 0.04).toFixed(1) + 'px');
   updateActiveSection();
+}
+window.addEventListener('scroll', () => {
+  if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
 }, { passive:true });
 
 function setMobileMenu(open){
@@ -696,8 +794,22 @@ function updateActiveSection(){
     a.classList.toggle('active', active);
     if(active) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
   });
+  moveIndicator();
+}
+const navInd = document.querySelector('.nav-ind');
+function moveIndicator(){
+  const a = document.querySelector('.nav-links a.active');
+  if(!a || !navInd || mobileMenuQuery.matches) return;
+  navInd.style.width = a.offsetWidth + 'px';
+  navInd.style.height = a.offsetHeight + 'px';
+  navInd.style.top = a.offsetTop + 'px';
+  navInd.style.transform = 'translateX(' + a.offsetLeft + 'px)';
+  navInd.style.opacity = '1';
 }
 updateActiveSection();
+requestAnimationFrame(() => navInd && navInd.classList.add('anim'));
+window.addEventListener('resize', moveIndicator);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
 
 /* REVEAL */
 const revealObs = new IntersectionObserver((entries, obs) => {
