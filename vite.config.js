@@ -23,5 +23,6 @@ function portfolioEntry() {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [portfolioEntry()],
 })
