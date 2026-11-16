@@ -8,6 +8,7 @@
   <meta name="keywords" content="Guest Relations, Hospitality, Customer Experience, Reception, Concierge, Hotel Operations" />
   <meta name="author" content="Thasneem Shahani Meyen" />
   <meta name="theme-color" content="#f6f3ec" />
+  <link rel="preload" href="/profile.jpeg" as="image" type="image/jpeg" fetchpriority="high" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 
   <!-- Open Graph -->
@@ -152,28 +153,19 @@
   .fact:last-child{ border:0; margin:0; padding:0; }
   .fact b{ display:block; font-family:var(--font-display); font-size:1.7rem; letter-spacing:-.03em; line-height:1.1; }
   .fact span{ font-size:.82rem; color:var(--muted); }
-  .glance{ display:flex; flex-direction:column; gap:1.8rem; padding:clamp(1.5rem,3vw,2.2rem); border-radius:36px; background:var(--t1); }
-  .glance-top{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-  .glance-label{ font-size:.82rem; font-weight:600; color:var(--muted); }
-  .glance-now{ display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .8rem; border-radius:999px; background:var(--card); font-size:.78rem; font-weight:600; }
-  .glance-now i{ width:8px; height:8px; border-radius:50%; background:#3aa76d; }
-  .glance-role b{ display:block; font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.3rem); letter-spacing:-.035em; line-height:1.05; }
-  .glance-role span{ display:block; margin-top:.4rem; color:var(--muted); }
-  .glance-block{ padding-top:1.4rem; border-top:1px solid var(--line); }
-  .glance-h{ display:block; font-size:.78rem; font-weight:600; color:var(--muted); margin-bottom:.8rem; }
-  .glance-langs{ list-style:none; display:grid; gap:.1rem; }
-  .glance-langs li{ display:flex; justify-content:space-between; gap:1rem; padding:.55rem 0; border-bottom:1px solid var(--line); }
-  .glance-langs li:last-child{ border-bottom:0; padding-bottom:0; }
-  .glance-langs b{ font-family:var(--font-display); font-weight:600; letter-spacing:-.01em; }
-  .glance-langs span{ color:var(--muted); font-size:.92rem; }
+  .hero-photo{ position:relative; border-radius:36px; overflow:hidden; background:var(--t1); aspect-ratio:4/5; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; }
+  .hero-photo figcaption{ position:absolute; left:1rem; right:1rem; bottom:1rem; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    padding:.9rem 1.1rem; border-radius:20px; background:var(--card); font-size:.88rem; }
+  .hero-photo figcaption b{ font-family:var(--font-display); font-weight:600; letter-spacing:-.01em; }
+  .hero-photo figcaption span{ color:var(--muted); }
 
   /* ============================================================
      ABOUT
      ============================================================ */
-  .about-grid{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(2rem,6vw,6rem); align-items:center; }
-  .about-photo{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:center 22%; border-radius:var(--r-card); background:var(--t1); }
-  .about-text .h-section{ margin-bottom:1.6rem; }
-  .about-lead{ font-size:clamp(1.1rem,1.7vw,1.35rem); color:var(--muted); max-width:42ch; margin-bottom:2.4rem; line-height:1.6; }
+  .about-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(2rem,6vw,6rem); align-items:start; }
+  .about-lead{ font-size:clamp(1.15rem,1.8vw,1.4rem); color:var(--fg); line-height:1.55; margin-bottom:1.2rem; }
+  .about-body{ color:var(--muted); margin-bottom:2.4rem; max-width:46ch; }
   .about-lead strong{ color:var(--fg); font-weight:600; }
   .principles{ display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; }
   .principle{ padding:1.2rem; border-radius:var(--r-md); }
@@ -300,8 +292,8 @@
     .nav-close svg{ width:20px; height:20px; }
     body.nav-open nav.bar>.brand,body.nav-open nav.bar>.nav-actions{ visibility:hidden; }
     .hero{ padding-top:6.5rem; }
+    .hero-photo{ aspect-ratio:1; max-width:520px; }
     .hero-grid,.about-grid,.contact-grid{ grid-template-columns:1fr; }
-    .about-photo{ aspect-ratio:1; max-width:460px; }
     .job{ grid-template-columns:1fr; gap:1.2rem; }
   }
   @media(max-width:620px){
@@ -385,34 +377,10 @@
         <div class="fact"><b>Sri Lanka</b><span>Based in</span></div>
       </div>
     </div>
-    <aside class="glance" aria-label="At a glance">
-      <div class="glance-top">
-        <span class="glance-label">At a glance</span>
-        <span class="glance-now"><i></i>Currently working</span>
-      </div>
-      <div class="glance-role">
-        <b>Front Desk Executive</b>
-        <span>Nexentra, Sri Lanka</span>
-      </div>
-      <div class="glance-block">
-        <span class="glance-h">Languages</span>
-        <ul class="glance-langs">
-          <li><b>English</b><span>Fluent</span></li>
-          <li><b>Sinhala</b><span>Fluent</span></li>
-          <li><b>Tamil</b><span>Conversational</span></li>
-        </ul>
-      </div>
-      <div class="glance-block">
-        <span class="glance-h">Day to day</span>
-        <ul class="tags">
-          <li>Check-ins &amp; check-outs</li>
-          <li>Enquiries</li>
-          <li>Facility upkeep</li>
-          <li>Complaint handling</li>
-          <li>Record keeping</li>
-        </ul>
-      </div>
-    </aside>
+    <figure class="hero-photo">
+      <img src="/profile.jpeg" alt="Thasneem Shahani Meyen" width="1086" height="1448" fetchpriority="high" decoding="async" />
+      <figcaption><b>Shahani Meyen</b><span>Front Desk Executive</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -420,12 +388,12 @@
 <section class="section" id="about">
   <div class="wrap about-grid">
     <div class="reveal">
-      <img class="about-photo" src="/profile.jpeg" alt="Thasneem Shahani Meyen" width="1086" height="1448" loading="lazy" decoding="async" />
-    </div>
-    <div class="about-text reveal d1">
       <span class="eyebrow">About me</span>
       <h2 class="h-section">Calm presence, <em>memorable service.</em></h2>
-      <p class="about-lead">I'm <strong>Thasneem Shahani Meyen</strong>, a guest-focused professional who brings clarity, warmth, and confidence to every arrival.</p>
+    </div>
+    <div class="about-text reveal d1">
+      <p class="about-lead">I'm <strong>Thasneem Shahani Meyen</strong>, a guest-focused professional with two years of client-facing experience across front desk operations, facility management, and student counselling.</p>
+      <p class="about-body">Known for calm problem solving, organized follow-through, and warm communication in English and Sinhala, with conversational Tamil.</p>
       <div class="principles">
         <div class="principle"><b>Listen</b><span>Understand the guest.</span></div>
         <div class="principle"><b>Personalize</b><span>Make service feel human.</span></div>
