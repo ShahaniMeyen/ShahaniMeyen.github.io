@@ -190,7 +190,7 @@ Theme values live near the top of `src/portfolio.html` as CSS custom properties.
 
 ### Update contact details
 
-Search `src/portfolio.html` for `shahani.meyen@gmail.com`. Update both the visible email link and the email destination used by the contact form.
+Search `src/portfolio.html` for `thasneemshahani@gmail.com`. Update both the visible email link and the email destination used by the contact form.
 
 > [!IMPORTANT]
 > Never commit private credentials or API keys. Keep local-only environment values inside `.env.local`.
